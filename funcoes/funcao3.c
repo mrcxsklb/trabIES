@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int fatorial (int x) {
     if(x != 1) {
@@ -17,6 +18,11 @@ float ex (int n) {
 }
 
 int main () {
-    printf("%f\n", ex(3));
+    int x;
+    
+    printf("Digite um numero: ");
+    scanf("%d", &x);
+    printf("%f\n", ex(x));
+    
     return 0;
 }
