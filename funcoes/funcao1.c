@@ -17,7 +17,7 @@ int main () {
     
     printf("Digite um numero (base): ");
     scanf("%d", &base);
-    printf("Digite um numero (potência): ");
+    printf("Digite um numero (potencia): ");
     scanf("%d", &potencia);
     printf("%d\n", calcPotencia(base, potencia));
 }
