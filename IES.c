@@ -77,6 +77,6 @@ float conta (float total) {
 }
 
 int main () {
-    conta (100);
+    
     return 0;
 }
