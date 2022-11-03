@@ -1,54 +1,57 @@
-#include<stdio.h>
-#include <math.h>
+#include <stdio.h>
 
-float valorPrestacoes(int x, float total) {
-    int i, quantPrestacoes;
-    switch (x)
-    {
-    case 1:
-        printf("Total de uma prestacao de %.2f\n", total*0.9);
-        break;
-    
-    case 2:
-        printf("Total de duas prestacoes de: %.2f\n", total/2);
-        break;
+int menu(){
+  int opcao;
+  
+  printf("\nEscolha a opcaoo de pagamento:\n");
+  printf("1 - a vista com 10%% de desconto\n");
+  printf("2 - em duas vezes (preco da etiqueta)\n");
+  printf("3 - de 3 ate 10 vezes com 3%% de juros ao mes (somente para compras acima de R$ 100,00)\n");
 
-    case 3:
-        printf("Escolher o total de prestacoes com juros:\n");
+  scanf("%d", &opcao);
+  return opcao;
+}
+
+float opcao1(float x){
+  printf("Valor final: R$ %.2f\n", x*0.9);
+}
+
+float opcao2(float x){
+  printf("Valor final: R$ %.2f x2\n", x/2);
+}
+
+float opcao3(float x){
+  int quantPrestacoes;
+  
+  printf("Escolher o total de prestacoes com juros:\n");
         scanf("%d", &quantPrestacoes);
-        if(total >= 100) {
-            for (i = 1; i <= quantPrestacoes; i++) {
-                printf("Prestacao [%d] = %.2f\n", i, (total*1.03)/3);
-                total *= 1.03;
+        if(x >= 100) {
+            for (int i = 1; i <= quantPrestacoes; i++) {
+                printf("Prestacao [%d] = %.2f\n", i, (x*1.03)/3);
+                x *= 1.03;
             }
-            printf("Total a ser pago sera de: %.2f\n", total);    
-        } else {
-            printf("Total de %d prestacoes de: %.2f\n", quantPrestacoes, total/quantPrestacoes);
-        }
-                
-        break;
-    }
-    return 0;
+            printf("Total a ser pago sera de: %.2f\n", x);    
+        } else
+            printf("Total de %d prestacoes de: %.2f\n", quantPrestacoes, x/quantPrestacoes);
+
 }
 
-void printOpcoes (float total) {
-    printf("[1] A vista = %.2f;\n", total*0.9);
-    printf("[2] Duas parcelas de = %.2f;\n", total/2);
-    printf("[3] Parcelado de 3 a 10 vezes, contem juros de 3%% ao mes para compras acima de 100 reais.\n");
-}
+int main(void) {
+  float gasto;
+  int opcao;
+  
+  printf("Digite o gasto do cliente\nR$ ");
+  scanf("%f", &gasto);
+  opcao = menu();
 
-// Exercicio funcoes 04
-float conta (float total) {
-    int opcao;
-    printf("Total da compra: %.2f\n", total);
-    printf("Selecione a opcao de pagamento:\n");
-    printOpcoes(total);
-    scanf("%d", &opcao);
-    valorPrestacoes(opcao, total);
-    return 0;
-}
-
-int main () {
-    conta(254);
-    return 0;
+  switch(opcao){
+    case 1: opcao1(gasto);
+      break;
+    case 2: opcao2(gasto);
+      break;
+    case 3: opcao3(gasto);
+      break;
+  }
+  
+  return 0;
 }
