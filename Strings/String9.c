@@ -8,13 +8,22 @@ typedef struct {
     char snome[max];
 } PESSOA;
 
+int getLetras (char *pessoa) {
+    int i = 0;
+    while (pessoa[i] != '\0')
+        i++;
+    return i;
+}
+
 int main() {
     PESSOA listaPessoas[max];
-    int i, j, tam;
+    int i, j, tam, letras = 0;
     printf("Digite a lista de prenomes e sobrenomes:\n");
     for (i = 0; i < max; i++) {
         scanf("%s%*c", listaPessoas[i].pnome);
+        letras += getLetras(listaPessoas[i].pnome);
         scanf("%s%*c", listaPessoas[i].snome);
+        letras += getLetras(listaPessoas[i].snome);
         if (strcmp(listaPessoas[i].pnome, "FIM") == 0) break;
     }
     tam = i;
@@ -46,5 +55,6 @@ int main() {
     for (i = 0; i < tam; i++) {
         printf("%s\n", listaPessoas[i].snome);
     }
+    printf("Media de letras nos nomes %.2f\n", (float)letras/tam);
     return 0;
 }
