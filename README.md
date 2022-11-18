@@ -10,7 +10,7 @@
 
 -> Entrega #2: Parâmetros / Strings
 
--> Entrega #3: Sequenciais simples / Controle de fluxo
+-> Entrega #3: Sequenciais simples / Controle de fluxo / Vetores
 
 ## Ambiente de desenvolvimento
 A IDE utilizada foi o Visual Studio Code, ultima versão lançada (10/11/2022). Utilizando o mingw como compilador para linguagem C.
